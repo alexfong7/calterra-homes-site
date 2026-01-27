@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Calterra Homes | Residential Builder</title>
+    <meta name="description" content="Calterra Homes is a residential builder serving the Greater Sacramento area. Custom homes, ADUs, and residential projects with clear communication and quality craftsmanship." />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="brand">
+          <!-- Replace this later with your logo image -->
+          <div class="brand-mark" aria-hidden="true"></div>
+          <div class="brand-text">
+            <div class="brand-name">Calterra Homes</div>
+            <div class="brand-tag">Residential Builder</div>
+          </div>
+        </div>
+
+        <nav class="nav">
+          <a href="#services">Services</a>
+          <a href="#areas">Service Areas</a>
+          <a href="#about">About</a>
+          <a href="#contact" class="btn">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <h1>Residential Builder for Custom Homes & ADUs</h1>
+            <p class="subhead">
+              A credibility-first build process: clear communication, straightforward planning, and quality execution.
+            </p>
+            <div class="hero-cta">
+              <a class="btn" href="#contact">Request a consultation</a>
+              <a class="btn btn-ghost" href="#services">See services</a>
+            </div>
+
+            <div class="trust-row" aria-label="Trust cues">
+              <span>Licensed & Insured</span>
+              <span>Clear Communication</span>
+              <span>Quality Craftsmanship</span>
+            </div>
+          </div>
+
+          <div class="hero-card">
+            <h2>Quick Contact</h2>
+            <p class="small">Tell us what you’re building and where. We’ll respond with next steps.</p>
+
+            <!-- Netlify form (works once you deploy on Netlify) -->
+            <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+              <input type="hidden" name="form-name" value="contact" />
+              <p class="hidden">
+                <label>Don’t fill this out: <input name="bot-field" /></label>
+              </p>
+
+              <label>
+                Name
+                <input name="name" type="text" autocomplete="name" required />
+              </label>
+
+              <label>
+                Email
+                <input name="email" type="email" autocomplete="email" required />
+              </label>
+
+              <label>
+                Phone (optional)
+                <input name="phone" type="tel" autocomplete="tel" />
+              </label>
+
+              <label>
+                Message
+                <textarea name="message" rows="5" required></textarea>
+              </label>
+
+              <button class="btn" type="submit">Send</button>
+              <p class="small muted">Your info is used only to respond to your request.</p>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="section">
+        <div class="container">
+          <h2>Services</h2>
+          <div class="grid">
+            <div class="card">
+              <h3>Custom Homes</h3>
+              <p>Planning, coordination, and construction for thoughtful residential builds.</p>
+            </div>
+            <div class="card">
+              <h3>ADUs</h3>
+              <p>Accessory dwelling units designed and built to fit your property and goals.</p>
+            </div>
+            <div class="card">
+              <h3>Residential Projects</h3>
+              <p>Targeted residential work where quality and clear scope matter.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="areas" class="section section-alt">
+        <div class="container">
+          <h2>Service Areas</h2>
+          <p class="muted">Serving the Greater Sacramento area, including:</p>
+          <ul class="pill-list">
+            <li>Sacramento</li>
+            <li>Roseville</li>
+            <li>Rocklin</li>
+            <li>Loomis</li>
+            <li>Auburn</li>
+            <li>…and surrounding areas</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="container">
+          <h2>About</h2>
+          <p>
+            Calterra Homes is a residential builder focused on clear communication, disciplined planning, and quality
+            execution. We keep the process straightforward so homeowners can make confident decisions.
+          </p>
+        </div>
+      </section>
+
+      <section id="contact" class="section section-alt">
+        <div class="container">
+          <h2>Contact</h2>
+          <p class="muted">Prefer email or phone? Add them here once you’re ready.</p>
+          <p class="small muted">For now, use the form above and we’ll reply quickly.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <div class="brand-name">Calterra Homes</div>
+          <div class="muted small">Residential Builder</div>
+        </div>
+        <div class="muted small">© <span id="year"></span> Calterra Homes. All rights reserved.</div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

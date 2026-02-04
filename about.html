@@ -1,52 +1,130 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About | Calterra Homes</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About | Calterra Homes</title>
+    <meta
+      name="description"
+      content="Learn about Calterra Homes, a California Licensed General Building Contractor (B) serving the Greater Sacramento area."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-<body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html">
-        <img src="images/logo.png" alt="Calterra Homes logo" class="brand-logo" />
-      </a>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="Calterra Homes Home">
+          <img
+            src="images/FullLogo_Transparent_NoBuffer.png"
+            alt="Calterra Homes logo"
+            class="brand-logo"
+          />
+        </a>
 
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="blog.html">Blog</a>
-        <a href="about.html" aria-current="page">About</a>
-        <a href="contact.html" class="btn">Contact</a>
-      </nav>
-    </div>
-  </header>
+        <nav class="nav" aria-label="Primary">
+          <a href="index.html">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="blog.html">Blog</a>
+          <a href="about.html" aria-current="page">About</a>
+          <a href="contact.html" class="btn">Contact</a>
+        </nav>
+      </div>
+    </header>
 
-  <main class="section">
-    <div class="container">
-      <h1>About Calterra Homes</h1>
-      <p>
-        Calterra Homes is a residential builder serving the Greater Sacramento area.
-        We focus on clear communication, disciplined planning, and quality execution.
-      </p>
+    <main class="section">
+      <div class="container">
+        <h1>About</h1>
 
-      <p>
-        Licensed as a California General Building Contractor (B), we approach residential
-        projects with a straightforward process so homeowners can make confident decisions.
-      </p>
-    </div>
-  </main>
+        <div class="card" style="margin-top: 14px;">
+          <h2>About Calterra Homes</h2>
+          <p class="muted">
+            Calterra Homes is a residential builder serving the Greater Sacramento area, focused on
+            custom homes and accessory dwelling units (ADUs). We emphasize clear scope, disciplined
+            planning, and consistent communication from preconstruction through completion.
+          </p>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="muted small">© <span id="year"></span> Calterra Homes</div>
-    </div>
-  </footer>
+          <p class="muted" style="margin-top: 10px;">
+            Calterra Homes is operated by Alex Fong, a California Licensed General Building Contractor (B).
+          </p>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-</body>
+          <div class="card" style="margin-top: 14px;">
+            <p style="margin: 0; font-weight: 700;">California Licensed Contractor (B)</p>
+            <p class="muted small" style="margin: 6px 0 0;">
+              CSLB License #1136501
+            </p>
+            <p class="muted small" style="margin: 4px 0 0;">
+              <a href="https://www.cslb.ca.gov/onlineservices/checklicenseII/checklicense.aspx" target="_blank" rel="noopener">
+                Verify license on CSLB website
+              </a>
+            </p>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top: 14px;">
+          <h2>About Alex</h2>
+
+          <div class="grid" style="grid-template-columns: 220px 1fr; align-items: start;">
+            <div class="card" style="padding: 14px; text-align: center;">
+              <p class="muted small" style="margin: 0;">
+                Headshot coming soon
+              </p>
+            </div>
+
+            <div>
+              <p class="muted">
+                I’ve been in construction for over 10 years, starting with residential remodels in the
+                Tahoe area. I later attended California State University, Sacramento, where I studied
+                Construction Management with a minor in Business.
+              </p>
+
+              <p class="muted">
+                While in school, I worked with MJB Homes, Inc. and gained hands-on construction management
+                experience across the full residential building process—design coordination, planning,
+                permitting, construction, and final inspections. That experience continues to shape how I
+                approach projects today.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top: 14px;">
+          <h2>Why Calterra Homes</h2>
+          <p class="muted">
+            I started Calterra Homes because I genuinely love the construction industry and saw an
+            opportunity to improve the experience homeowners have when working with contractors.
+          </p>
+          <p class="muted">
+            Poor communication, unclear scope, and unrealistic expectations create unnecessary stress
+            during what should be an exciting process. Our goal is to provide a building experience that
+            feels organized, transparent, and professionally managed from start to finish.
+          </p>
+        </div>
+
+        <div class="card" style="margin-top: 14px;">
+          <h2>How We Do Our Best Work</h2>
+          <p class="muted">
+            We do our best work when projects are thoughtfully planned and expectations are clearly defined
+            from the beginning. Clear communication, realistic planning, and early decision-making allow
+            projects to move efficiently and reduce unnecessary stress.
+          </p>
+          <p class="muted">
+            Every project begins under different circumstances, but the goal remains the same: bring
+            structure, clarity, and professionalism to the process so homeowners feel informed and
+            confident throughout the build.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="muted small">© <span id="year"></span> Calterra Homes. All rights reserved.</div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
 </html>

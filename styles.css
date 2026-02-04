@@ -29,6 +29,13 @@ a{ color: inherit; text-decoration: none; }
   align-items: center;
   padding: 14px 0;
 }
+.brand{
+  justify-self: center;
+}
+
+.nav{
+  justify-self: end;
+}
 .brand{ display:flex; gap: 12px; align-items:center; }
 .brand-logo{
   width: 420px;

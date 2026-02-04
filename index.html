@@ -4,28 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Calterra Homes | Residential Builder</title>
-    <meta name="description" content="Calterra Homes is a residential builder serving the Greater Sacramento area. Custom homes, ADUs, and residential projects with clear communication and quality craftsmanship." />
+    <meta
+      name="description"
+      content="Calterra Homes is a residential builder serving the Greater Sacramento area. Custom homes, ADUs, and residential projects with clear communication and quality craftsmanship."
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
 
   <body>
     <header class="site-header">
       <div class="container header-inner">
-      <div class="brand">
-  <img
-    src="images/FullLogo_Transparent_NoBuffer.png"
-    alt="Calterra Homes logo"
-    class="brand-logo"
-  />
-</div>
+        <div class="brand">
+          <img
+            src="images/FullLogo_Transparent_NoBuffer.png"
+            alt="Calterra Homes logo"
+            class="brand-logo"
+          />
+        </div>
 
-      <nav class="nav">
-  <a href="index.html">Home</a>
-  <a href="projects.html">Projects</a>
-  <a href="blog.html">Blog</a>
-  <a href="about.html">About</a>
-  <a href="contact.html" class="btn">Contact</a>
-</nav>
+        <nav class="nav">
+          <a href="index.html" aria-current="page">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="blog.html">Blog</a>
+          <a href="about.html">About</a>
+          <a href="contact.html" class="btn">Contact</a>
+        </nav>
       </div>
     </header>
 
@@ -35,10 +38,12 @@
           <div class="hero-copy">
             <h1>Custom Homes & ADUs</h1>
             <p class="subhead">
-              Clear communication, disciplined planning, and quality execution—so you can make confident decisions throughout the build.
+              Clear communication, disciplined planning, and quality execution—so you
+              can make confident decisions throughout the build.
             </p>
+
             <div class="hero-cta">
-              <a class="btn" href="#contact">Request a consultation</a>
+              <a class="btn" href="contact.html">Request a consultation</a>
               <a class="btn btn-ghost" href="#services">See services</a>
             </div>
 
@@ -50,39 +55,14 @@
           </div>
 
           <div class="hero-card">
-            <h2>Quick Contact</h2>
-            <p class="small">Tell us what you’re building and where. We’ll respond with next steps.</p>
-
-            <!-- Netlify form (works once you deploy on Netlify) -->
-            <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-              <input type="hidden" name="form-name" value="contact" />
-              <p class="hidden">
-                <label>Don’t fill this out: <input name="bot-field" /></label>
-              </p>
-
-              <label>
-                Name
-                <input name="name" type="text" autocomplete="name" required />
-              </label>
-
-              <label>
-                Email
-                <input name="email" type="email" autocomplete="email" required />
-              </label>
-
-              <label>
-                Phone (optional)
-                <input name="phone" type="tel" autocomplete="tel" />
-              </label>
-
-              <label>
-                Message
-                <textarea name="message" rows="5" required></textarea>
-              </label>
-
-              <button class="btn" type="submit">Send</button>
-              <p class="small muted">Your info is used only to respond to your request.</p>
-            </form>
+            <h2>Next Steps</h2>
+            <p class="small">
+              Tell us what you’re building and where. We’ll respond with next steps.
+            </p>
+            <a class="btn" href="contact.html">Go to contact</a>
+            <p class="small muted" style="margin-top:10px;">
+              Prefer to browse first? See <a href="projects.html">Projects</a>.
+            </p>
           </div>
         </div>
       </section>
@@ -121,31 +101,10 @@
           </ul>
         </div>
       </section>
-
-      <section id="about" class="section">
-        <div class="container">
-          <h2>About</h2>
-          <p>
-            Calterra Homes is a residential builder serving the Greater Sacramento area. We focus on clear communication, disciplined planning, and quality execution to help homeowners make confident decisions throughout the build process.
-          </p>
-        </div>
-      </section>
-
-      <section id="contact" class="section section-alt">
-        <div class="container">
-          <h2>Contact</h2>
-          <p class="muted">Prefer email or phone? Add them here once you’re ready.</p>
-          <p class="small muted">For now, use the form above and we’ll reply quickly.</p>
-        </div>
-      </section>
     </main>
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <div>
-          <div class="brand-name">Calterra Homes</div>
-          <div class="muted small">Residential Builder</div>
-        </div>
         <div class="muted small">© <span id="year"></span> Calterra Homes. All rights reserved.</div>
       </div>
     </footer>
@@ -155,3 +114,4 @@
     </script>
   </body>
 </html>
+

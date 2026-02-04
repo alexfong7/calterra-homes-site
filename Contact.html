@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact | Calterra Homes</title>
+  <meta
+    name="description"
+    content="Contact Calterra Homes to discuss custom homes and ADUs in the Greater Sacramento area."
+  />
   <link rel="stylesheet" href="styles.css" />
 </head>
 
@@ -11,7 +15,11 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="index.html">
-        <img src="images/logo.png" alt="Calterra Homes logo" class="brand-logo" />
+        <img
+          src="images/FullLogo_Transparent_NoBuffer.png"
+          alt="Calterra Homes logo"
+          class="brand-logo"
+        />
       </a>
 
       <nav class="nav">
@@ -28,27 +36,65 @@
     <div class="container">
       <h1>Contact</h1>
       <p class="muted">
-        Tell us a bit about what you’re planning and we’ll follow up with next steps.
+        Tell us a bit about what you’re planning and where your property is located.
+        We’ll follow up with next steps.
       </p>
 
-      <form name="contact" method="POST" data-netlify="true">
+      <form
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+      >
         <input type="hidden" name="form-name" value="contact" />
 
-        <label>Name
-          <input type="text" name="name" required />
+        <!-- Honeypot field (spam protection) -->
+        <p class="hidden">
+          <label>
+            Don’t fill this out:
+            <input name="bot-field" />
+          </label>
+        </p>
+
+        <label>
+          Name
+          <input type="text" name="name" autocomplete="name" required />
         </label>
 
-        <label>Email
-          <input type="email" name="email" required />
+        <label>
+          Email
+          <input type="email" name="email" autocomplete="email" required />
         </label>
 
-        <label>Message
+        <label>
+          Phone (optional)
+          <input type="tel" name="phone" autocomplete="tel" />
+        </label>
+
+        <label>
+          Message
           <textarea name="message" rows="5" required></textarea>
         </label>
 
-        <button class="btn" type="submit">Send</button>
+        <button class="btn" type="submit">Send message</button>
+
+        <p class="small muted" style="margin-top:10px;">
+          We use your information only to respond to your inquiry.
+        </p>
       </form>
     </div>
   </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="muted small">
+        © <span id="year"></span> Calterra Homes. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Blog | Calterra Homes</title>
+    <meta
+      name="description"
+      content="Calterra Homes blog: custom homes, ADUs, permitting, planning, costs, and project guidance for homeowners in the Greater Sacramento area."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="Calterra Homes Home">
+          <img
+            src="images/FullLogo_Transparent_NoBuffer.png"
+            alt="Calterra Homes logo"
+            class="brand-logo"
+          />
+        </a>
+
+        <nav class="nav" aria-label="Primary">
+          <a href="index.html">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="blog.html" aria-current="page">Blog</a>
+          <a href="about.html">About</a>
+          <a href="contact.html" class="btn">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="section">
+      <div class="container">
+        <h1>Blog</h1>
+        <p class="muted">
+          Practical guidance on custom homes, ADUs, remodel planning, and cost drivers—written for homeowners in the Greater Sacramento area.
+        </p>
+
+        <div class="post-list" style="margin-top: 14px;">
+          <a class="post-card" href="posts/how-to-start-adu-planning-greater-sacramento.html">
+            <div class="post-title">How to start planning an ADU in the Greater Sacramento area</div>
+            <div class="post-meta">ADUs • Planning</div>
+            <div class="post-excerpt">
+              The first steps that prevent expensive redesigns later: site constraints, utilities, setbacks, access, and permit path.
+            </div>
+          </a>
+
+          <a class="post-card" href="posts/what-drives-cost-custom-home-or-adu.html">
+            <div class="post-title">What actually drives the cost of a custom home or ADU?</div>
+            <div class="post-meta">Costs • Scope</div>
+            <div class="post-excerpt">
+              The real cost drivers: scope clarity, site conditions, design complexity, finish level, and long-lead items.
+            </div>
+          </a>
+
+          <a class="post-card" href="posts/custom-home-timeline-what-to-expect.html">
+            <div class="post-title">Custom home timeline: what to expect from design to completion</div>
+            <div class="post-meta">Process • Timelines</div>
+            <div class="post-excerpt">
+              A realistic overview of phases and what typically stretches timelines—permits, selections, and long-lead materials.
+            </div>
+          </a>
+        </div>
+
+        <div class="card" style="margin-top: 14px;">
+          <h2 style="margin: 0 0 6px;">Have a question you don’t see here?</h2>
+          <p class="muted" style="margin: 0 0 12px;">
+            Send it over. If it’s common, we’ll write a clear answer and share it.
+          </p>
+          <a class="btn" href="contact.html">Ask a question</a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="muted small">© <span id="year"></span> Calterra Homes. All rights reserved.</div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+
+    <!-- Page-specific styling for blog cards (kept minimal) -->
+    <style>
+      .post-list{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .post-card{
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 16px;
+        background: #fff;
+        display: block;
+      }
+      .post-card:hover{
+        background: var(--alt);
+      }
+      .post-title{
+        font-weight: 900;
+        font-size: 18px;
+        margin-bottom: 6px;
+      }
+      .post-meta{
+        color: var(--muted);
+        font-size: 13px;
+        margin-bottom: 10px;
+      }
+      .post-excerpt{
+        color: var(--muted);
+        line-height: 1.5;
+      }
+    </style>
+  </body>
+</html>

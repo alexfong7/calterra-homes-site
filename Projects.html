@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Projects | Calterra Homes</title>
+    <meta
+      name="description"
+      content="Project gallery by Calterra Homes. New homes, ADUs, and remodel work in the Greater Sacramento area."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="Calterra Homes Home">
+          <img
+            src="images/FullLogo_Transparent_NoBuffer.png"
+            alt="Calterra Homes logo"
+            class="brand-logo"
+          />
+        </a>
+
+        <nav class="nav" aria-label="Primary">
+          <a href="index.html">Home</a>
+          <a href="projects.html" aria-current="page">Projects</a>
+          <a href="blog.html">Blog</a>
+          <a href="about.html">About</a>
+          <a href="contact.html" class="btn">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="section">
+      <div class="container">
+        <h1>Projects</h1>
+        <p class="muted">
+          A few examples of residential work. More photos will be added as projects complete.
+        </p>
+
+        <div class="card" style="margin-top: 14px;">
+          <h2 style="margin: 0 0 6px;">New Homes</h2>
+          <p class="muted small" style="margin: 0 0 12px;">
+            Ground-up residential builds from planning through completion.
+          </p>
+
+          <div class="project-grid">
+            <div class="project-tile">
+              <div class="project-photo project-photo--placeholder">Photo coming soon</div>
+              <div class="project-meta">
+                <div class="project-title">New Home</div>
+                <div class="project-sub muted small">City • Notes</div>
+              </div>
+            </div>
+
+            <div class="project-tile">
+              <div class="project-photo project-photo--placeholder">Photo coming soon</div>
+              <div class="project-meta">
+                <div class="project-title">New Home</div>
+                <div class="project-sub muted small">City • Notes</div>
+              </div>
+            </div>
+
+            <div class="project-tile">
+              <div class="project-photo project-photo--placeholder">Photo coming soon</div>
+              <div class="project-meta">
+                <div class="project-title">New Home</div>
+                <div class="project-sub muted small">City • Notes</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top: 14px;">
+          <h2 style="margin: 0 0 6px;">ADUs</h2>
+          <p class="muted small" style="margin: 0 0 12px;">
+            Detached and attached ADUs designed to fit your property and goals.
+          </p>
+
+          <div class="project-grid">
+            <div class="project-tile">
+              <div class="project-photo project-photo--placeholder">Photo coming soon</div>
+              <div class="project-meta">
+                <div class="project-title">ADU</div>
+                <div class="project-sub muted small">City • Notes</div>
+              </div>
+            </div>
+
+            <div class="project-tile">
+              <div class="project-photo project-photo--placeholder">Photo coming soon</div>
+              <div class="project-meta">
+                <div class="project-title">ADU</div>
+                <div class="project-sub muted small">City • Notes</div>
+              </div>
+            </div>
+
+            <div class="project-tile">
+              <div class="project-photo project-photo--placeholder">Photo coming soon</div>
+              <div class="project-meta">
+                <div class="project-title">ADU</div>
+                <div class="project-sub muted small">City • Notes</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top: 14px;">
+          <h2 style="margin: 0 0 6px;">Remodels</h2>
+          <p class="muted small" style="margin: 0 0 12px;">
+            Residential remodel work where planning and clear scope matter.
+          </p>
+
+          <div class="project-grid">
+            <div class="project-tile">
+              <div class="project-photo project-photo--placeholder">Photo coming soon</div>
+              <div class="project-meta">
+                <div class="project-title">Remodel</div>
+                <div class="project-sub muted small">City • Notes</div>
+              </div>
+            </div>
+
+            <div class="project-tile">
+              <div class="project-photo project-photo--placeholder">Photo coming soon</div>
+              <div class="project-meta">
+                <div class="project-title">Remodel</div>
+                <div class="project-sub muted small">City • Notes</div>
+              </div>
+            </div>
+
+            <div class="project-tile">
+              <div class="project-photo project-photo--placeholder">Photo coming soon</div>
+              <div class="project-meta">
+                <div class="project-title">Remodel</div>
+                <div class="project-sub muted small">City • Notes</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top: 14px;">
+          <h2 style="margin: 0 0 6px;">Have something in mind?</h2>
+          <p class="muted" style="margin: 0 0 12px;">
+            Tell us what you’re planning and where your property is located.
+          </p>
+          <a class="btn" href="contact.html">Contact Calterra Homes</a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="muted small">© <span id="year"></span> Calterra Homes. All rights reserved.</div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+
+    <!-- Page-specific styling (kept minimal; you can move to styles.css later) -->
+    <style>
+      .project-grid{
+        margin-top: 10px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+      .project-tile{
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        overflow: hidden;
+        background: #fff;
+      }
+      .project-photo{
+        width: 100%;
+        height: 190px;
+        display: grid;
+        place-items: center;
+        font-size: 13px;
+      }
+      .project-photo--placeholder{
+        background: var(--alt);
+        color: var(--muted);
+      }
+      .project-meta{
+        padding: 12px 14px;
+      }
+      .project-title{
+        font-weight: 800;
+      }
+
+      @media (max-width: 900px){
+        .project-grid{ grid-template-columns: 1fr; }
+        .project-photo{ height: 220px; }
+      }
+    </style>
+  </body>
+</html>

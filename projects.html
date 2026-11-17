@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -9,6 +9,7 @@
       content="Project gallery by Calterra Homes. New homes, ADUs, and remodel work in the Greater Sacramento area."
     />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="theme.css" />
     <link rel="canonical" href="https://calterrahomes.com/projects" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -42,9 +43,9 @@
     </header>
 
     <main>
-      <section class="section proj-hero">
+      <section class="page-hero proj-hero">
         <div class="container">
-          <span class="eyebrow">Our work</span>
+          <span class="kicker">Our work</span>
           <h1>Projects</h1>
           <p class="proj-lead">
             Real before-and-after photos, the actual scope, and where the work was done. Every project
@@ -58,7 +59,7 @@
         </div>
       </section>
 
-      <section class="section" style="padding-top: 0;" id="remodels">
+      <section class="band band-white" id="remodels" style="padding-top: 64px;">
         <div class="container">
           <div class="section-head">
             <h2>Remodels &amp; Repairs</h2>
@@ -89,7 +90,7 @@
         </div>
       </section>
 
-      <section class="section section-alt" id="adus">
+      <section class="band band-stone" id="adus">
         <div class="container upcoming-cat">
           <div>
             <h2>ADUs</h2>
@@ -107,7 +108,7 @@
         </div>
       </section>
 
-      <section class="section" id="new-homes">
+      <section class="band band-white" id="new-homes">
         <div class="container upcoming-cat">
           <div>
             <h2>New Homes</h2>
@@ -124,25 +125,68 @@
         </div>
       </section>
 
-      <section class="cta-band">
-        <div class="container cta-inner">
-          <div>
-            <h2>Have a project in mind?</h2>
-            <p>Tell us what you're planning and where your property is located.</p>
-          </div>
-          <a class="btn btn-light" href="contact.html">Request a consultation</a>
+      <section class="cta">
+        <div class="container">
+          <span class="kicker">Start with a conversation</span>
+          <h2>Have a project in mind?</h2>
+          <p>Tell us what you're planning and where your property is located.</p>
+          <a class="btn btn-gold btn-lg" href="contact.html">Request a consultation</a>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer">
-      <div class="container footer-inner">
-        <div class="muted small">© <span id="year"></span> Calterra Homes, a brand of Fong Construction · CA Contractor License #1136501 (B)</div>
+    <footer class="site-footer rich">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <img class="footer-logo" src="images/calterra-logo.svg" alt="Calterra Homes" />
+            <p class="footer-about">Custom homes, ADUs, and remodels across Greater Sacramento, planned carefully and built with clear communication.</p>
+          </div>
+          <div>
+            <h4>Explore</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="projects.html">Projects</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Services</h4>
+            <ul>
+              <li><a href="contact.html">Custom Homes</a></li>
+              <li><a href="blog.html">ADUs</a></li>
+              <li><a href="projects.html">Remodels &amp; Repairs</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Get started</h4>
+            <ul>
+              <li><a href="contact.html">Request a consultation</a></li>
+              <li><a href="https://www.cslb.ca.gov/onlineservices/checklicenseII/checklicense.aspx" target="_blank" rel="noopener">Verify license #1136501 with CSLB</a></li>
+              <li style="color: var(--muted);">Serving Sacramento, Placer &amp; El Dorado counties</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© <span id="year"></span> Calterra Homes, a brand of Fong Construction · CA Contractor License #1136501 (B)</span>
+          <span>Greater Sacramento, California</span>
+        </div>
       </div>
     </footer>
 
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
+      document.documentElement.classList.replace("no-js", "js");
+      (function () {
+        var els = document.querySelectorAll(".reveal");
+        if (!("IntersectionObserver" in window)) { els.forEach(function (e) { e.classList.add("is-visible"); }); return; }
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add("is-visible"); io.unobserve(en.target); } });
+        }, { threshold: 0.12 });
+        els.forEach(function (e) { io.observe(e); });
+      })();
     </script>
 
     <!-- Projects page styling -->

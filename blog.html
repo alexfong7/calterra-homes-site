@@ -41,39 +41,96 @@
       </div>
     </header>
 
-    <main class="section">
-      <div class="container">
-        <h1>Blog</h1>
-        <p class="muted">
-          Practical guidance on custom homes, ADUs, remodel planning, and cost drivers—written for homeowners in the Greater Sacramento area.
-        </p>
-
-        <div class="post-list" style="margin-top: 14px;">
-          <a class="post-card" href="posts/ab-956-two-detached-adus-california.html">
-            <div class="post-title">AB 956: Can you build two detached ADUs on your property starting in 2027?</div>
-            <div class="post-meta">ADUs • California law • Nov 17, 2026</div>
-            <div class="post-excerpt">
-              What the new law changes, the junior ADU trade-off most summaries miss, and how to tell whether your lot can actually fit two units.
-            </div>
-          </a>
-
-          <a class="post-card" href="posts/how-to-start-adu-planning-greater-sacramento.html">
-            <div class="post-title">How to start planning an ADU in the Greater Sacramento area</div>
-            <div class="post-meta">ADUs • Planning</div>
-            <div class="post-excerpt">
-              The first steps that prevent expensive redesigns later: site constraints, utilities, setbacks, access, and permit path.
-            </div>
-          </a>
-        </div>
-
-        <div class="card" style="margin-top: 14px;">
-          <h2 style="margin: 0 0 6px;">Have a question you don’t see here?</h2>
-          <p class="muted" style="margin: 0 0 12px;">
-            Send it over. If it’s common, we’ll write a clear answer and share it.
+    <main>
+      <section class="section blog-hero">
+        <div class="container">
+          <span class="eyebrow">Homeowner guides</span>
+          <h1>Straight answers for Greater Sacramento homeowners</h1>
+          <p class="blog-lead">
+            Practical guidance on ADUs, custom homes, remodels, permits, and costs, written by a
+            licensed general contractor who works on these projects. New articles are added regularly.
           </p>
-          <a class="btn" href="contact.html">Ask a question</a>
+
+          <div class="topic-row" role="group" aria-label="Filter articles by topic">
+            <button class="topic is-active" data-topic="all" type="button">All articles</button>
+            <button class="topic" data-topic="adus" type="button">ADUs</button>
+            <button class="topic" data-topic="law" type="button">Laws &amp; permits</button>
+            <button class="topic" data-topic="planning" type="button">Planning &amp; costs</button>
+            <button class="topic" data-topic="custom" type="button">Custom homes</button>
+            <button class="topic" data-topic="remodels" type="button">Remodels</button>
+          </div>
         </div>
-      </div>
+      </section>
+
+      <section class="section" style="padding-top: 0;">
+        <div class="container">
+          <!-- Newest article goes first, as the featured card. -->
+          <a class="featured-post" href="posts/ab-956-two-detached-adus-california.html" data-topics="adus law">
+            <span class="featured-panel">
+              <span class="featured-label">Latest article</span>
+              <span class="featured-topic">ADUs · California law</span>
+              <span class="featured-date">Nov 17, 2026 · 5 min read</span>
+            </span>
+            <span class="featured-body">
+              <span class="post-title-lg">AB 956: Can you build two detached ADUs on your property starting in 2027?</span>
+              <span class="post-excerpt">
+                What the new law changes, the junior ADU trade-off most summaries miss, and how to
+                tell whether your lot can actually fit two units.
+              </span>
+              <span class="read-link">Read the article →</span>
+            </span>
+          </a>
+
+          <div class="post-grid">
+            <a class="post-card" href="posts/how-to-start-adu-planning-greater-sacramento.html" data-topics="adus planning">
+              <span class="tag">ADUs · Planning</span>
+              <span class="post-title">How to start planning an ADU in the Greater Sacramento area</span>
+              <span class="post-excerpt">
+                The first steps that prevent expensive redesigns later: site constraints, utilities,
+                setbacks, access, and permit path.
+              </span>
+              <span class="post-meta">2 min read</span>
+              <span class="read-link">Read →</span>
+            </a>
+          </div>
+
+          <p id="no-posts" class="muted" hidden>
+            No articles on this topic yet. It's on the schedule. In the meantime,
+            <a href="contact.html">send us your question</a>.
+          </p>
+        </div>
+      </section>
+
+      <section class="section section-alt">
+        <div class="container">
+          <h2>Coming up</h2>
+          <p class="muted" style="margin-top: 0;">Articles on the way, based on the questions homeowners ask most.</p>
+          <div class="upcoming">
+            <div class="upcoming-item">
+              <span class="tag">ADUs · Costs</span>
+              <span class="upcoming-title">How much does an ADU cost in the Sacramento area?</span>
+            </div>
+            <div class="upcoming-item">
+              <span class="tag">ADUs · Permits</span>
+              <span class="upcoming-title">The ADU permit process in Greater Sacramento, step by step</span>
+            </div>
+            <div class="upcoming-item">
+              <span class="tag">ADUs · Utilities</span>
+              <span class="upcoming-title">Water, sewer &amp; power: utility upgrades that can make or break an ADU</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-band">
+        <div class="container cta-inner">
+          <div>
+            <h2>Have a question you don't see here?</h2>
+            <p>Send it over. If it's a common one, we'll write a clear answer and share it.</p>
+          </div>
+          <a class="btn btn-light" href="contact.html">Ask a question</a>
+        </div>
+      </section>
     </main>
 
     <footer class="site-footer">
@@ -86,36 +143,100 @@
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
 
-    <!-- Page-specific styling for blog cards (kept minimal) -->
+    <script>
+      // Topic filter: shows only articles tagged with the chosen topic.
+      (function () {
+        var buttons = document.querySelectorAll(".topic");
+        var posts = document.querySelectorAll("[data-topics]");
+        var none = document.getElementById("no-posts");
+        buttons.forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            var t = btn.getAttribute("data-topic");
+            buttons.forEach(function (b) { b.classList.toggle("is-active", b === btn); });
+            var shown = 0;
+            posts.forEach(function (p) {
+              var match = t === "all" || p.getAttribute("data-topics").split(" ").indexOf(t) !== -1;
+              p.hidden = !match;
+              if (match) shown++;
+            });
+            if (none) none.hidden = shown !== 0;
+          });
+        });
+      })();
+    </script>
+
+    <!-- Blog page styling -->
     <style>
-      .post-list{
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 12px;
+      .eyebrow{ text-transform: uppercase; letter-spacing: .08em; font-size: 12px; font-weight: 800; color: var(--brand); }
+      .blog-hero h1{ max-width: 760px; margin: 8px 0 12px; line-height: 1.15; }
+      .blog-lead{ max-width: 720px; font-size: 18px; line-height: 1.6; color: var(--muted); margin: 0; }
+      .topic-row{ display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+      .topic{
+        font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;
+        padding: 7px 14px; border-radius: 999px; border: 1px solid var(--border);
+        background: #fff; color: var(--text, #0f172a);
       }
+      .topic:hover{ border-color: var(--brand); }
+      .topic.is-active{ background: var(--brand); border-color: var(--brand); color: #fff; }
+      [hidden]{ display: none !important; }
+
+      .featured-post{
+        display: grid; grid-template-columns: 280px 1fr; border: 1px solid var(--border);
+        border-radius: 16px; overflow: hidden; background: #fff; color: inherit;
+        transition: box-shadow .15s, transform .15s;
+      }
+      .featured-post:hover{ box-shadow: 0 6px 18px rgba(15,23,42,.10); transform: translateY(-2px); }
+      .featured-panel{
+        background: var(--brand); color: #fff; padding: 24px;
+        display: flex; flex-direction: column; justify-content: flex-end; gap: 6px; min-height: 200px;
+        border-right: 4px solid var(--accent);
+      }
+      .featured-label{ text-transform: uppercase; letter-spacing: .08em; font-size: 12px; font-weight: 800; color: var(--accent-light); }
+      .featured-topic{ font-size: 18px; font-weight: 800; }
+      .featured-date{ font-size: 14px; opacity: .85; }
+      .featured-body{ padding: 24px; display: flex; flex-direction: column; gap: 10px; }
+      .post-title-lg{ font-size: 24px; font-weight: 800; line-height: 1.25; }
+
+      .post-grid{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 16px; }
       .post-card{
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        padding: 16px;
-        background: #fff;
-        display: block;
+        display: flex; flex-direction: column; gap: 8px; border: 1px solid var(--border);
+        border-radius: 14px; padding: 18px; background: #fff; color: inherit;
+        transition: box-shadow .15s, transform .15s;
       }
-      .post-card:hover{
-        background: var(--alt);
+      .post-card:hover{ box-shadow: 0 6px 18px rgba(15,23,42,.10); transform: translateY(-2px); }
+      .post-title{ font-weight: 800; font-size: 18px; line-height: 1.3; }
+      .post-excerpt{ color: var(--muted); line-height: 1.5; font-size: 15px; }
+      .post-meta{ color: var(--muted); font-size: 13px; margin-top: auto; }
+      .tag{
+        align-self: flex-start; font-size: 12px; font-weight: 700; color: var(--brand);
+        background: #e7efe9; padding: 4px 10px; border-radius: 999px;
       }
-      .post-title{
-        font-weight: 900;
-        font-size: 18px;
-        margin-bottom: 6px;
+      .read-link{ color: var(--brand); font-weight: 700; font-size: 14px; }
+      #no-posts{ margin-top: 16px; }
+      #no-posts a{ color: var(--brand); text-decoration: underline; }
+
+      .upcoming{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 14px; }
+      .upcoming-item{
+        display: flex; flex-direction: column; gap: 8px; padding: 16px; border-radius: 14px;
+        border: 1px dashed #c9d3cd; background: #fff;
       }
-      .post-meta{
-        color: var(--muted);
-        font-size: 13px;
-        margin-bottom: 10px;
+      .upcoming-title{ font-weight: 700; line-height: 1.35; }
+
+      .cta-band{ background: var(--brand); padding: 40px 0; }
+      .cta-inner{ display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+      .cta-band h2{ color: #fff; margin: 0 0 6px; }
+      .cta-band p{ color: #e3ece6; margin: 0; }
+      .btn-light{ background: #fff; color: var(--brand); border-color: #fff; }
+      .btn-light:hover{ background: var(--accent-light); border-color: var(--accent-light); color: var(--brand); }
+
+      @media (max-width: 900px){
+        .featured-post{ grid-template-columns: 1fr; }
+        .featured-panel{ min-height: 0; border-right: 0; border-bottom: 4px solid var(--accent); }
+        .post-grid, .upcoming{ grid-template-columns: 1fr 1fr; }
       }
-      .post-excerpt{
-        color: var(--muted);
-        line-height: 1.5;
+      @media (max-width: 560px){
+        .post-grid, .upcoming{ grid-template-columns: 1fr; }
+        .post-title-lg{ font-size: 20px; }
       }
     </style>
   </body>

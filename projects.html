@@ -41,49 +41,98 @@
       </div>
     </header>
 
-    <main class="section">
-      <div class="container">
-        <h1>Projects</h1>
-        <p class="muted">
-          Recent residential work. More projects will be added as they are completed.
-        </p>
+    <main>
+      <section class="section proj-hero">
+        <div class="container">
+          <span class="eyebrow">Our work</span>
+          <h1>Projects</h1>
+          <p class="proj-lead">
+            Real before-and-after photos, the actual scope, and where the work was done. Every project
+            shown here was planned and built by Calterra Homes. New projects are added as they're completed.
+          </p>
+          <div class="cat-row">
+            <a class="cat" href="#remodels">Remodels &amp; Repairs <span class="count">1</span></a>
+            <a class="cat" href="#adus">ADUs</a>
+            <a class="cat" href="#new-homes">New Homes</a>
+          </div>
+        </div>
+      </section>
 
-        <section class="project-section">
-          <h2>Remodels</h2>
-          <p class="muted small">Residential remodel work where planning and clear scope matter.</p>
+      <section class="section" style="padding-top: 0;" id="remodels">
+        <div class="container">
+          <div class="section-head">
+            <h2>Remodels &amp; Repairs</h2>
+            <p class="muted">Bathrooms, kitchens, repairs, and updates.</p>
+          </div>
+
+          <!-- Add new project tiles inside this grid. With one tile it shows wide;
+               with two or more it switches to a grid automatically. -->
           <div class="project-grid">
             <a class="project-tile" href="bathroom-remodel-carmichael.html">
-              <img src="images/bathroom-vanity-before-after.jpg"
-                   alt="Bathroom remodel in Carmichael, before and after"
-                   width="1600" height="1060" loading="lazy" />
+              <span class="tile-img">
+                <img src="images/bathroom-vanity-before-after.jpg"
+                     alt="Bathroom remodel in Carmichael, before and after"
+                     width="1600" height="1060" loading="lazy" />
+              </span>
               <span class="project-tile-body">
+                <span class="tile-tags"><span class="tag">Bathroom</span><span class="tag">Before &amp; after</span></span>
                 <span class="project-tile-title">Bathroom Remodel</span>
                 <span class="project-tile-sub">Carmichael, CA</span>
+                <span class="tile-desc">
+                  A bathroom taken down to the framing and subfloor, rebuilt with a new shower pan and
+                  surround, tile flooring, fixtures, and lighting.
+                </span>
+                <span class="read-link">View project →</span>
               </span>
             </a>
           </div>
-        </section>
-
-        <section class="project-section">
-          <h2>New Homes</h2>
-          <p class="muted small">Ground-up residential builds from planning through completion.</p>
-          <p class="muted" style="margin: 0;">Project photos coming soon.</p>
-        </section>
-
-        <section class="project-section">
-          <h2>ADUs</h2>
-          <p class="muted small">Detached and attached ADUs designed to fit your property and goals.</p>
-          <p class="muted" style="margin: 0;">Project photos coming soon.</p>
-        </section>
-
-        <div class="card" style="margin-top: 14px;">
-          <h2 style="margin: 0 0 6px;">Have something in mind?</h2>
-          <p class="muted" style="margin: 0 0 12px;">
-            Tell us what you’re planning and where your property is located.
-          </p>
-          <a class="btn" href="contact.html">Contact Calterra Homes</a>
         </div>
-      </div>
+      </section>
+
+      <section class="section section-alt" id="adus">
+        <div class="container upcoming-cat">
+          <div>
+            <h2>ADUs</h2>
+            <p class="muted">Detached and attached ADUs designed to fit your property and goals.</p>
+          </div>
+          <div class="card empty-card">
+            <span class="empty-label">Project photos coming soon</span>
+            <p>Thinking about an ADU? Most of the cost and schedule is decided before design starts,
+              by setbacks, utilities, and access.</p>
+            <div class="empty-links">
+              <a href="posts/ab-956-two-detached-adus-california.html">Read: two ADUs under AB 956 →</a>
+              <a href="posts/how-to-start-adu-planning-greater-sacramento.html">Read: how to start planning an ADU →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="new-homes">
+        <div class="container upcoming-cat">
+          <div>
+            <h2>New Homes</h2>
+            <p class="muted">Ground-up residential builds from planning through completion.</p>
+          </div>
+          <div class="card empty-card">
+            <span class="empty-label">Project photos coming soon</span>
+            <p>Planning a custom home? A feasibility review of the lot, utilities, and major cost
+              factors is the right first step, before you pay for design.</p>
+            <div class="empty-links">
+              <a href="contact.html">Talk about your build →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-band">
+        <div class="container cta-inner">
+          <div>
+            <h2>Have a project in mind?</h2>
+            <p>Tell us what you're planning and where your property is located.</p>
+          </div>
+          <a class="btn btn-light" href="contact.html">Request a consultation</a>
+        </div>
+      </section>
     </main>
 
     <footer class="site-footer">
@@ -96,23 +145,69 @@
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
 
-    <!-- Page-specific styling: project grid -->
+    <!-- Projects page styling -->
     <style>
-      .project-section{ margin-top: 26px; }
-      .project-section h2{ margin: 0 0 4px; }
-      .project-section > .small{ margin: 0 0 14px; }
+      .eyebrow{ text-transform: uppercase; letter-spacing: .08em; font-size: 12px; font-weight: 800; color: var(--brand); }
+      .proj-hero h1{ margin: 8px 0 12px; }
+      .proj-lead{ max-width: 760px; font-size: 18px; line-height: 1.6; color: var(--muted); margin: 0; }
+      .cat-row{ display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+      .cat{
+        display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border-radius: 999px;
+        border: 1px solid var(--border); background: #fff; font-size: 14px; font-weight: 600; color: inherit;
+      }
+      .cat:hover{ border-color: var(--brand); color: var(--brand); }
+      .count{ background: var(--brand); color: #fff; border-radius: 999px; font-size: 12px; padding: 1px 8px; }
+      .section-head h2{ margin: 0 0 4px; }
+      .section-head p{ margin: 0 0 16px; }
+
       .project-grid{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
       .project-tile{
-        display: block; border: 1px solid var(--border); border-radius: 14px;
-        overflow: hidden; background: #fff; transition: box-shadow .15s, transform .15s;
+        display: flex; flex-direction: column; border: 1px solid var(--border); border-radius: 16px;
+        overflow: hidden; background: #fff; color: inherit; transition: box-shadow .15s, transform .15s;
       }
       .project-tile:hover{ box-shadow: 0 6px 18px rgba(15,23,42,.10); transform: translateY(-2px); }
-      .project-tile img{ width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; display: block; }
-      .project-tile-body{ display: block; padding: 12px 14px; }
-      .project-tile-title{ display: block; font-weight: 800; }
-      .project-tile-sub{ display: block; color: var(--muted); font-size: 13px; margin-top: 2px; }
-      @media (max-width: 900px){ .project-grid{ grid-template-columns: 1fr 1fr; } }
-      @media (max-width: 560px){ .project-grid{ grid-template-columns: 1fr; } }
+      .tile-img img{ width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; display: block; }
+      .project-tile-body{ display: flex; flex-direction: column; gap: 6px; padding: 16px 18px 18px; }
+      .tile-tags{ display: flex; gap: 6px; flex-wrap: wrap; }
+      .tag{ font-size: 12px; font-weight: 700; color: var(--brand); background: #e7efe9; padding: 4px 10px; border-radius: 999px; }
+      .project-tile-title{ font-weight: 800; font-size: 20px; }
+      .project-tile-sub{ color: var(--muted); font-size: 14px; }
+      .tile-desc{ color: var(--muted); line-height: 1.5; font-size: 15px; }
+      .read-link{ color: var(--brand); font-weight: 700; font-size: 14px; margin-top: 4px; }
+
+      /* Only one project in a category: show it as a wide feature card */
+      .project-grid:has(> .project-tile:only-child){ grid-template-columns: 1fr; }
+      .project-grid > .project-tile:only-child{ display: grid; grid-template-columns: 1.15fr 1fr; }
+      .project-grid > .project-tile:only-child .tile-img img{ height: 100%; }
+      .project-grid > .project-tile:only-child .project-tile-body{ padding: 26px; justify-content: center; }
+      .project-grid > .project-tile:only-child .project-tile-title{ font-size: 24px; }
+
+      .upcoming-cat{ display: grid; grid-template-columns: 1fr 1.3fr; gap: 28px; align-items: start; }
+      .upcoming-cat h2{ margin: 0 0 6px; }
+      .empty-card{ border-style: dashed; }
+      .empty-label{
+        display: inline-block; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em;
+        color: var(--brand); margin-bottom: 6px;
+      }
+      .empty-card p{ margin: 0 0 10px; line-height: 1.55; }
+      .empty-links{ display: flex; flex-direction: column; gap: 6px; }
+      .empty-links a{ color: var(--brand); font-weight: 700; font-size: 14px; }
+
+      .cta-band{ background: var(--brand); padding: 40px 0; }
+      .cta-inner{ display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+      .cta-band h2{ color: #fff; margin: 0 0 6px; }
+      .cta-band p{ color: #e3ece6; margin: 0; }
+      .btn-light{ background: #fff; color: var(--brand); border-color: #fff; }
+      .btn-light:hover{ background: var(--accent-light); border-color: var(--accent-light); color: var(--brand); }
+
+      @media (max-width: 900px){
+        .project-grid{ grid-template-columns: 1fr 1fr; }
+        .project-grid > .project-tile:only-child{ grid-template-columns: 1fr; }
+        .upcoming-cat{ grid-template-columns: 1fr; gap: 12px; }
+      }
+      @media (max-width: 560px){
+        .project-grid{ grid-template-columns: 1fr; }
+      }
     </style>
   </body>
 </html>

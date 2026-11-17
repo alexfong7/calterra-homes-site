@@ -131,7 +131,19 @@ button{ cursor: pointer; }
 .muted{ color: var(--muted); }
 .hidden{ display:none; }
 
+/* About page: headshot column + bio */
+.about-grid{ grid-template-columns: 220px 1fr; align-items: start; }
+
 @media (max-width: 900px){
   .hero-inner{ grid-template-columns: 1fr; }
   .grid{ grid-template-columns: 1fr; }
+  .about-grid{ grid-template-columns: 1fr; }
+
+  /* Header on tablets/phones: logo on top, menu centered below.
+     Desktop header above 900px is unchanged. */
+  .site-header{ position: static; }
+  .header-inner{ grid-template-columns: 1fr; gap: 8px; padding: 12px 0; }
+  .brand, .nav{ justify-self: center; }
+  .nav{ justify-content: center; gap: 4px; }
+  .brand-logo{ width: 100%; max-width: 300px; }
 }

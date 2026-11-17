@@ -55,14 +55,29 @@
           </div>
 
           <div class="hero-card">
-            <h2>Next Steps</h2>
-            <p class="small">
-              Tell us what you’re building and where. We’ll respond with next steps.
-            </p>
-            <a class="btn" href="contact.html">Go to contact</a>
-            <p class="small muted" style="margin-top:10px;">
-              Prefer to browse first? See <a href="projects.html">Projects</a>.
-            </p>
+            <h2>How a project works</h2>
+            <ol class="process-list">
+              <li>
+                <span class="process-name">Feasibility</span>
+                <span class="process-desc">Property constraints, utilities, and major cost factors</span>
+              </li>
+              <li>
+                <span class="process-name">Design &amp; Engineering</span>
+                <span class="process-desc">Plans and the consultants your project requires</span>
+              </li>
+              <li>
+                <span class="process-name">Budget</span>
+                <span class="process-desc">Detailed pricing based on the final scope</span>
+              </li>
+              <li>
+                <span class="process-name">Permitting</span>
+                <span class="process-desc">Submittals, plan review, and approvals</span>
+              </li>
+              <li>
+                <span class="process-name">Construction</span>
+                <span class="process-desc">Managed through final inspection and completion</span>
+              </li>
+            </ol>
           </div>
         </div>
       </section>
@@ -112,6 +127,31 @@
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
+    <!-- Homepage-specific styling: process steps in the hero card -->
+    <style>
+      .process-list{ list-style: none; counter-reset: step; margin: 0; padding: 0; }
+      .process-list li{
+        counter-increment: step;
+        position: relative;
+        padding: 0 0 14px 42px;
+      }
+      .process-list li:last-child{ padding-bottom: 0; }
+      .process-list li::before{
+        content: counter(step);
+        position: absolute; left: 0; top: 0;
+        width: 28px; height: 28px; border-radius: 50%;
+        background: var(--brand); color: #fff;
+        display: grid; place-items: center;
+        font-weight: 700; font-size: 14px;
+      }
+      /* thin connector line between steps */
+      .process-list li:not(:last-child)::after{
+        content: ""; position: absolute; left: 13px; top: 30px; bottom: 2px;
+        width: 2px; background: var(--border);
+      }
+      .process-name{ display: block; font-weight: 700; line-height: 28px; }
+      .process-desc{ display: block; color: var(--muted); font-size: 14px; line-height: 1.4; }
+    </style>
   </body>
 </html>
 

@@ -58,10 +58,11 @@
             </div>
 
             <div class="trust-row" aria-label="Credentials">
-              <a href="https://www.cslb.ca.gov/onlineservices/checklicenseII/checklicense.aspx" target="_blank" rel="noopener">CA License #1136501 (B) · Verify with CSLB</a>
+              <a id="verify-license" href="https://www.cslb.ca.gov/onlineservices/checklicenseII/checklicense.aspx" target="_blank" rel="noopener" title="Opens the CSLB license search. Enter 1136501.">CA License #1136501 (B) · Verify with CSLB</a>
               <span>Construction Management, Sacramento State</span>
               <span>Serving Greater Sacramento</span>
             </div>
+            <p id="verify-note" class="verify-note" hidden>License number 1136501 copied. Paste it into the CSLB search box.</p>
               <div class="card builder-card">
                 <!-- Headshot goes here later: <img class="builder-photo" src="images/alex-fong.jpg" alt="Alex Fong" /> -->
                 <span class="eyebrow">Who you'll work with</span>
@@ -183,6 +184,25 @@
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
+    <script>
+      // Copy the license number when someone clicks "Verify with CSLB",
+      // since CSLB's site requires searching by number.
+      (function () {
+        var link = document.getElementById("verify-license");
+        var note = document.getElementById("verify-note");
+        if (!link) return;
+        link.addEventListener("click", function () {
+          try {
+            if (navigator.clipboard) {
+              navigator.clipboard.writeText("1136501").then(function () {
+                if (note) note.hidden = false;
+              }).catch(function () {});
+            }
+          } catch (e) {}
+        });
+      })();
+    </script>
+
     <!-- Homepage-specific styling: process steps in the hero card -->
     <style>
       .process-list{ list-style: none; counter-reset: step; margin: 0; padding: 0; }
@@ -212,6 +232,7 @@
       }
       .hero-scope{ font-weight: 700; color: var(--brand); margin: 0 0 6px; font-size: 18px; }
       .trust-row a{ padding: 6px 10px; background: var(--alt); border: 1px solid var(--border); border-radius: 999px; color: var(--brand); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+      .verify-note{ margin: 8px 0 0; font-size: 13px; color: var(--brand); font-weight: 600; }
       .service-card{ display: flex; flex-direction: column; }
       .service-card p{ flex: 1; }
       .card-link{ color: var(--brand); font-weight: 700; font-size: 14px; margin-top: 6px; display: inline-block; }

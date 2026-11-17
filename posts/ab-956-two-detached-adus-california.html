@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -9,6 +9,7 @@
       content="Starting January 1, 2027, AB 956 lets California homeowners build two detached ADUs on a single-family lot. What changed, the JADU trade-off, and how to tell if your lot can fit two."
     />
     <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../theme.css" />
     <link rel="canonical" href="https://calterrahomes.com/posts/ab-956-two-detached-adus-california" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -41,14 +42,20 @@
       </div>
     </header>
 
-    <main class="section">
-      <div class="container article">
-        <p class="muted small"><a href="../blog.html">← Back to Blog</a></p>
-
-        <h1>AB 956: Can You Build Two Detached ADUs on Your Property Starting in 2027?</h1>
-        <p class="article-meta">
+      <section class="page-hero">
+        <div class="container">
+          <a class="back-link" href="../blog.html">← All articles</a>
+          <span class="kicker">ADUs · California law</span>
+          <h1>AB 956: Can You Build Two Detached ADUs on Your Property Starting in 2027?</h1>
+          <p class="hero-facts">
           By Alex Fong · <time datetime="2026-11-17">November 17, 2026</time>
         </p>
+          
+        </div>
+      </section>
+
+      <section class="band band-white" style="padding-top: 56px;">
+      <div class="container article">
 
         <p>
           Since 2020, California has required cities and counties to approve one detached,
@@ -205,16 +212,61 @@
           permits.
         </p>
       </div>
+      </section>
     </main>
 
-    <footer class="site-footer">
-      <div class="container footer-inner">
-        <div class="muted small">© <span id="year"></span> Calterra Homes, a brand of Fong Construction · CA Contractor License #1136501 (B)</div>
+    <footer class="site-footer rich">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <img class="footer-logo" src="../images/calterra-logo.svg" alt="Calterra Homes" />
+            <p class="footer-about">Custom homes, ADUs, and remodels across Greater Sacramento, planned carefully and built with clear communication.</p>
+          </div>
+          <div>
+            <h4>Explore</h4>
+            <ul>
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="../projects.html">Projects</a></li>
+              <li><a href="../blog.html">Blog</a></li>
+              <li><a href="../about.html">About</a></li>
+              <li><a href="../contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Services</h4>
+            <ul>
+              <li><a href="../contact.html">Custom Homes</a></li>
+              <li><a href="../blog.html">ADUs</a></li>
+              <li><a href="../projects.html">Remodels &amp; Repairs</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Get started</h4>
+            <ul>
+              <li><a href="../contact.html">Request a consultation</a></li>
+              <li><a href="https://www.cslb.ca.gov/onlineservices/checklicenseII/checklicense.aspx" target="_blank" rel="noopener">Verify license #1136501 with CSLB</a></li>
+              <li style="color: var(--muted);">Serving Sacramento, Placer &amp; El Dorado counties</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© <span id="year"></span> Calterra Homes, a brand of Fong Construction · CA Contractor License #1136501 (B)</span>
+          <span>Greater Sacramento, California</span>
+        </div>
       </div>
     </footer>
 
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
+      document.documentElement.classList.replace("no-js", "js");
+      (function () {
+        var els = document.querySelectorAll(".reveal");
+        if (!("IntersectionObserver" in window)) { els.forEach(function (e) { e.classList.add("is-visible"); }); return; }
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add("is-visible"); io.unobserve(en.target); } });
+        }, { threshold: 0.12 });
+        els.forEach(function (e) { io.observe(e); });
+      })();
     </script>
 
     <!-- Article styling (kept on this page, like the other page-specific styles) -->

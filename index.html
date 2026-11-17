@@ -46,6 +46,7 @@
         <div class="container hero-inner">
           <div class="hero-copy">
             <h1>Custom Homes & ADUs</h1>
+            <p class="hero-scope">Custom homes, ADUs, and remodels across Greater Sacramento.</p>
             <p class="subhead">
               Clear communication, disciplined planning, and quality execution—so you
               can make confident decisions throughout the build.
@@ -56,11 +57,26 @@
               <a class="btn btn-ghost" href="#services">See services</a>
             </div>
 
-            <div class="trust-row" aria-label="Trust cues">
-              <span>California Licensed Contractor (B)</span>
-              <span>Clear Communication</span>
-              <span>Quality Craftsmanship</span>
+            <div class="trust-row" aria-label="Credentials">
+              <a href="https://www.cslb.ca.gov/onlineservices/checklicenseII/checklicense.aspx" target="_blank" rel="noopener">CA License #1136501 (B) · Verify with CSLB</a>
+              <span>Construction Management, Sacramento State</span>
+              <span>Serving Greater Sacramento</span>
             </div>
+              <div class="card builder-card">
+                <!-- Headshot goes here later: <img class="builder-photo" src="images/alex-fong.jpg" alt="Alex Fong" /> -->
+                <span class="eyebrow">Who you'll work with</span>
+                <h2 class="builder-name">Alex Fong, licensed general contractor</h2>
+                <p>
+                  I hold a California General Building Contractor (B) license and a Construction
+                  Management degree from Sacramento State, and I've spent more than 10 years in
+                  residential construction.
+                </p>
+                <p>
+                  When you work with Calterra Homes, you work directly with me, from the first site
+                  visit through the final walkthrough.
+                </p>
+                <a class="card-link" href="about.html">More about Alex →</a>
+              </div>
           </div>
 
           <div class="hero-card">
@@ -87,6 +103,10 @@
                 <span class="process-desc">Managed through final inspection and completion</span>
               </li>
             </ol>
+            <p class="process-note">
+              Smaller remodels and repairs follow a simpler path: a site visit, a written
+              estimate, and a start date.
+            </p>
           </div>
         </div>
       </section>
@@ -95,19 +115,45 @@
         <div class="container">
           <h2>Services</h2>
           <div class="grid">
-            <div class="card">
+            <div class="card service-card">
               <h3>Custom Homes</h3>
               <p>Planning, coordination, and construction for thoughtful residential builds.</p>
+              <a class="card-link" href="contact.html">Talk about your build →</a>
             </div>
-            <div class="card">
+            <div class="card service-card">
               <h3>ADUs</h3>
               <p>Accessory dwelling units designed and built to fit your property and goals.</p>
+              <a class="card-link" href="posts/ab-956-two-detached-adus-california.html">Read: two ADUs under AB 956 →</a>
             </div>
-            <div class="card">
-              <h3>Residential Projects</h3>
-              <p>Smaller-scale residential projects where clear scope, planning, and quality execution matter.</p>
+            <div class="card service-card">
+              <h3>Remodels &amp; Repairs</h3>
+              <p>Bathrooms, kitchens, repairs, and updates. Smaller projects get the same clear scope and planning.</p>
+              <a class="card-link" href="bathroom-remodel-carmichael.html">See a recent remodel →</a>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section class="section" style="padding-top: 0;">
+        <div class="container">
+          <a class="card recent-card" href="bathroom-remodel-carmichael.html">
+            <img src="images/bathroom-vanity-before-after.jpg"
+                 alt="Carmichael bathroom before and after: torn-up flooring and debris, then new tile floor, vanity, mirror, and lighting"
+                 width="1600" height="1060" loading="lazy" />
+            <span class="recent-body">
+              <span class="eyebrow">Recent project</span>
+              <span class="recent-title">Bathroom Remodel</span>
+              <span class="muted small">Carmichael, CA</span>
+              <span class="recent-desc">A full refresh of a bathroom that had been taken down to the framing and subfloor.</span>
+              <span class="recent-list">
+                <span>Replaced the shower pan and surround</span>
+                <span>New tile flooring throughout</span>
+                <span>Updated plumbing fixtures, lighting, and accessories</span>
+              </span>
+              <span class="card-link">See the before &amp; after →</span>
+            </span>
+          </a>
+
         </div>
       </section>
 
@@ -121,6 +167,7 @@
             <li>Rocklin</li>
             <li>Loomis</li>
             <li>Auburn</li>
+            <li>Carmichael</li>
             <li>…and surrounding areas</li>
           </ul>
         </div>
@@ -159,6 +206,37 @@
         width: 2px; background: var(--border);
       }
       .process-name{ display: block; font-weight: 700; line-height: 28px; }
+      .process-note{
+        margin: 16px 0 0; padding-top: 12px; border-top: 1px solid var(--border);
+        font-size: 13px; color: var(--muted); line-height: 1.5;
+      }
+      .hero-scope{ font-weight: 700; color: var(--brand); margin: 0 0 6px; font-size: 18px; }
+      .trust-row a{ padding: 6px 10px; background: var(--alt); border: 1px solid var(--border); border-radius: 999px; color: var(--brand); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+      .service-card{ display: flex; flex-direction: column; }
+      .service-card p{ flex: 1; }
+      .card-link{ color: var(--brand); font-weight: 700; font-size: 14px; margin-top: 6px; display: inline-block; }
+      .intro-grid{ display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: stretch; }
+      .recent-card{ display: grid; grid-template-columns: 1.15fr 1fr; gap: 16px; padding: 0; overflow: hidden; color: inherit; }
+      .recent-card img{ width: 100%; height: 100%; aspect-ratio: 1600 / 1060; object-fit: cover; display: block; }
+      .recent-body{ display: flex; flex-direction: column; gap: 4px; padding: 22px 22px 22px 0; }
+      .recent-title{ font-weight: 800; font-size: 20px; }
+      .recent-desc{ margin-top: 6px; line-height: 1.5; }
+      .recent-list{ display: flex; flex-direction: column; gap: 4px; margin: 8px 0 14px; font-size: 14px; color: var(--muted); }
+      .recent-list span::before{ content: "✓"; color: var(--brand); font-weight: 800; margin-right: 8px; }
+      .recent-body .card-link{ margin-top: auto; }
+      .recent-card:hover{ box-shadow: 0 6px 18px rgba(15,23,42,.10); }
+      .eyebrow{ text-transform: uppercase; letter-spacing: .08em; font-size: 12px; font-weight: 800; color: var(--brand); }
+      .builder-card{ margin-top: 22px; padding: 18px 20px; }
+      .builder-card .builder-name{ font-size: 19px; margin: 4px 0 8px; }
+      .builder-card p{ line-height: 1.55; margin: 0 0 8px; font-size: 15px; }
+      @media (max-width: 900px){
+        .intro-grid{ grid-template-columns: 1fr; }
+      }
+      @media (max-width: 520px){
+        .recent-card{ grid-template-columns: 1fr; }
+        .recent-card img{ height: auto; }
+        .recent-body{ padding: 0 16px 16px; }
+      }
       .process-desc{ display: block; color: var(--muted); font-size: 14px; line-height: 1.4; }
     </style>
   </body>

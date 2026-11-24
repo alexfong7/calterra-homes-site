@@ -15,7 +15,7 @@
     <meta property="og:title" content="Modern 3-Bed Custom Home Plan | Calterra Homes" />
     <meta property="og:description" content="Modern 3-Bed: a 1,512 SF three-bedroom, two-bath single-story home with a shed roof. Floor plan, renderings and an estimated construction cost of $354,000 to $415,000, foundation and up." />
     <meta property="og:url" content="https://calterrahomes.com/modern-3-bed" />
-    <meta property="og:image" content="https://calterrahomes.com/images/modern-3-bed-rear.jpg" />
+    <meta property="og:image" content="https://calterrahomes.com/images/modern-3-bed-front.jpg" />
   </head>
 
   <body>
@@ -58,12 +58,20 @@
           <div class="pl-gallery">
             <div class="gallery" id="gallery">
               <!-- PLAN: renderings (one <figure> per view) -->
-              <!-- Front rendering goes here when available (data-view="front"), then add the Front/Rear buttons back -->
+              <figure class="g-item" data-view="front">
+                <img src="images/modern-3-bed-front.jpg" width="1600" height="900"
+                     alt="Rendering of the Modern 3-Bed front: single-story home with dark vertical siding, a shed roof, clerestory windows and a wood front door" />
+                <figcaption>Front. Rendering; final appearance varies.</figcaption>
+              </figure>
               <figure class="g-item" data-view="rear">
-                <img src="images/modern-3-bed-rear.jpg" width="1600" height="763"
+                <img src="images/modern-3-bed-rear.jpg" width="1600" height="763" loading="lazy"
                      alt="Rendering of the Modern 3-Bed rear: dark vertical siding, black-framed windows and a sliding door to the back yard" />
                 <figcaption>Rear. Rendering; final appearance varies.</figcaption>
               </figure>
+            </div>
+            <div class="g-buttons" role="group" aria-label="Choose a view">
+              <button type="button" data-show="front" aria-pressed="true">Front</button>
+              <button type="button" data-show="rear" aria-pressed="false">Rear</button>
             </div>
           </div>
 

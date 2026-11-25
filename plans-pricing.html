@@ -54,6 +54,18 @@
         </div>
       </section>
 
+      <!-- Lot check call-out -->
+      <section class="lot-callout ">
+        <div class="container lot-callout-inner">
+          <span class="lot-callout-icon"><svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="#B38F2A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 27h26"/><path d="M6 27V15l7-6 7 6v12"/><path d="M11 27v-6h4v6"/><circle cx="23" cy="9" r="4"/><path d="M26 12l3 3"/></svg></span>
+          <div class="lot-callout-text">
+            <strong>Will a plan fit your lot?</strong>
+            <span>Before you pick a plan, take the 1-minute lot check. It shows what your property may need, with local notes for your city or county.</span>
+          </div>
+          <a class="btn btn-lg lot-callout-btn" href="/lot-check">Check your lot →</a>
+        </div>
+      </section>
+
       <section class="band band-white" id="adus">
         <div class="container">
           <h2 class="section-title">ADUs</h2>
@@ -125,7 +137,6 @@
             <!-- END PLAN CARD -->
           </div>
           <p class="pricing-note">Price ranges are estimates for construction from the foundation up. They don't include design, permits and fees, utility work, or site work, which depend on your property.</p>
-          <p class="lot-line">Not sure a plan fits your lot? <a href="/lot-check">Try the 1-minute lot check →</a></p>
         </div>
       </section>
 
@@ -317,6 +328,20 @@
       }
       @media (max-width: 980px){ .plan-grid{ grid-template-columns: 1fr 1fr; } }
       @media (max-width: 600px){ .plan-grid{ grid-template-columns: 1fr; } }
+    </style>
+  
+    <!-- Lot check call-out styling -->
+    <style>
+      .lot-callout{ background: var(--stone); border-bottom: 1px solid var(--stone-line); }
+      .lot-callout-inner{ display: grid; grid-template-columns: auto 1fr auto; gap: 18px; align-items: center; padding-top: 22px; padding-bottom: 22px; }
+      .lot-callout-icon{ width: 56px; height: 56px; border-radius: 50%; background: #fff; border: 1px solid var(--stone-line); display: grid; place-items: center; }
+      .lot-callout-text strong{ display: block; font-family: var(--serif); font-size: 22px; color: var(--brand); margin-bottom: 2px; }
+      .lot-callout-text span{ color: #374151; line-height: 1.5; }
+      .lot-callout-btn{ white-space: nowrap; min-height: 48px; display: inline-flex; align-items: center; }
+      @media (max-width: 760px){
+        .lot-callout-inner{ grid-template-columns: auto 1fr; }
+        .lot-callout-btn{ grid-column: 1 / -1; justify-content: center; }
+      }
     </style>
   </body>
 </html>

@@ -59,6 +59,7 @@
               <a class="btn btn-outline-light btn-lg" href="projects.html">See our work</a>
             </div>
             <p class="hero-call">Prefer to talk? Call <a href="tel:+19162957006">(916) 295-7006</a></p>
+            <a class="hero-lot" href="/lot-check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>Planning an ADU or new home? Check your lot in a minute →</a>
             <ul class="hero-creds">
               <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D4BE6A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><a id="verify-license" href="https://www.cslb.ca.gov/onlineservices/checklicenseII/checklicense.aspx" target="_blank" rel="noopener">CA License #1136501 (B) · Verify</a></li>
               <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D4BE6A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Construction Management, Sacramento State</li>
@@ -93,6 +94,18 @@
   </g>
 </svg>
           </div>
+        </div>
+      </section>
+
+      <!-- Lot check call-out -->
+      <section class="lot-callout ">
+        <div class="container lot-callout-inner">
+          <span class="lot-callout-icon"><svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="#B38F2A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 27h26"/><path d="M6 27V15l7-6 7 6v12"/><path d="M11 27v-6h4v6"/><circle cx="23" cy="9" r="4"/><path d="M26 12l3 3"/></svg></span>
+          <div class="lot-callout-text">
+            <strong>Thinking about an ADU or a new home?</strong>
+            <span>Answer 9 quick questions and see what your lot may need: utilities, fire requirements, slope, and local rules.</span>
+          </div>
+          <a class="btn btn-lg lot-callout-btn" href="/lot-check">Check your lot →</a>
         </div>
       </section>
 
@@ -279,5 +292,21 @@
         });
       })();
     </script>
+  
+    <!-- Lot check call-out styling -->
+    <style>
+      .hero-lot{ display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin-top: 6px; color: var(--accent-light); font-weight: 700; border-bottom: 1px solid rgba(212,190,106,.5); }
+      .hero-lot:hover{ color: #fff; border-color: #fff; }
+      .lot-callout{ background: var(--stone); border-bottom: 1px solid var(--stone-line); }
+      .lot-callout-inner{ display: grid; grid-template-columns: auto 1fr auto; gap: 18px; align-items: center; padding-top: 22px; padding-bottom: 22px; }
+      .lot-callout-icon{ width: 56px; height: 56px; border-radius: 50%; background: #fff; border: 1px solid var(--stone-line); display: grid; place-items: center; }
+      .lot-callout-text strong{ display: block; font-family: var(--serif); font-size: 22px; color: var(--brand); margin-bottom: 2px; }
+      .lot-callout-text span{ color: #374151; line-height: 1.5; }
+      .lot-callout-btn{ white-space: nowrap; min-height: 48px; display: inline-flex; align-items: center; }
+      @media (max-width: 760px){
+        .lot-callout-inner{ grid-template-columns: auto 1fr; }
+        .lot-callout-btn{ grid-column: 1 / -1; justify-content: center; }
+      }
+    </style>
   </body>
 </html>

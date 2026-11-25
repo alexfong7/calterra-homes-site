@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Calterra Homes Blog</title>
+    <link>https://calterrahomes.com/blog</link>
+    <atom:link href="https://calterrahomes.com/feed.xml" rel="self" type="application/rss+xml" />
+    <description>Practical articles on ADUs, custom homes, and remodeling in the Greater Sacramento area.</description>
+    <language>en-us</language>
+    <!-- NEW POSTS GO AT THE TOP. Copy an <item>, change title, link, guid, date and description. -->
+    <item>
+      <title>The ADU Permit Process in Greater Sacramento, Step by Step</title>
+      <link>https://calterrahomes.com/posts/adu-permit-process-sacramento</link>
+      <guid isPermaLink="true">https://calterrahomes.com/posts/adu-permit-process-sacramento</guid>
+      <pubDate>Mon, 23 Nov 2026 08:00:00 -0800</pubDate>
+      <description>How ADU permits work in the Sacramento area: checking your lot, custom vs. preapproved plans, what goes in the permit set, state review deadlines, and inspections.</description>
+    </item>
+    <item>
+      <title>How Much Does an ADU Cost in Sacramento? (2026 Guide)</title>
+      <link>https://calterrahomes.com/posts/adu-cost-sacramento</link>
+      <guid isPermaLink="true">https://calterrahomes.com/posts/adu-cost-sacramento</guid>
+      <pubDate>Fri, 20 Nov 2026 08:00:00 -0800</pubDate>
+      <description>What drives ADU costs in the Sacramento area: typical ranges by ADU type, the 750 sq ft fee line, utility and grading unknowns, and how to keep your budget on track.</description>
+    </item>
+    <item>
+      <title>AB 956: Two Detached ADUs in California Starting 2027</title>
+      <link>https://calterrahomes.com/posts/ab-956-two-detached-adus-california</link>
+      <guid isPermaLink="true">https://calterrahomes.com/posts/ab-956-two-detached-adus-california</guid>
+      <pubDate>Tue, 17 Nov 2026 08:00:00 -0800</pubDate>
+      <description>Starting January 1, 2027, AB 956 lets California homeowners build two detached ADUs on a single-family lot. What changed, the JADU trade-off, and how to tell if your lot can fit two.</description>
+    </item>
+    <item>
+      <title>How to start planning an ADU in the Greater Sacramento area</title>
+      <link>https://calterrahomes.com/posts/how-to-start-adu-planning-greater-sacramento</link>
+      <guid isPermaLink="true">https://calterrahomes.com/posts/how-to-start-adu-planning-greater-sacramento</guid>
+      <pubDate>Mon, 16 Nov 2026 08:00:00 -0800</pubDate>
+      <description>The first steps to planning an ADU in the Greater Sacramento area: site constraints, utilities, setbacks, access, and permit path.</description>
+    </item>
+  </channel>
+</rss>

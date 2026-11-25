@@ -52,6 +52,7 @@
 
       <section class="band band-white">
         <div class="container lc-grid">
+          <div class="lc-left">
           <form class="lc-card" id="lotcheck" onsubmit="return false">
             <h2>About your property</h2>
             <p class="lc-intro">Takes about a minute. Pick "Not sure" whenever you don't know; that's useful too.</p>
@@ -147,6 +148,13 @@
           </fieldset>
             <button class="btn btn-lg lc-go" type="button" id="lc-go">See what to check</button>
           </form>
+            <div class="lc-next">
+              <h3>Want us to confirm it?</h3>
+              <p>A feasibility review checks your actual lot: zoning and setbacks, utilities, fire requirements, and site work, so you have a realistic budget before you pay for design.</p>
+              <a class="btn btn-gold btn-lg" id="lc-cta" href="/contact">Request a feasibility review</a>
+              <p class="lc-fine">This checklist is general information, not a site evaluation or a determination of what can be built. Rules vary by city, county, and utility district.</p>
+            </div>
+          </div>
 
           <aside class="lc-results" id="lc-results" aria-live="polite">
             <div class="lc-empty" id="lc-empty">
@@ -167,12 +175,6 @@
                 <a class="text-link" href="#" target="_blank" rel="noopener"></a>
               </div>
               <ol class="lc-list" id="lc-list"></ol>
-              <div class="lc-next">
-                <h3>Want us to confirm it?</h3>
-                <p>A feasibility review checks your actual lot: zoning and setbacks, utilities, fire requirements, and site work, so you have a realistic budget before you pay for design.</p>
-                <a class="btn btn-gold btn-lg" id="lc-cta" href="/contact">Request a feasibility review</a>
-                <p class="lc-fine">This checklist is general information, not a site evaluation or a determination of what can be built. Rules vary by city, county, and utility district.</p>
-              </div>
             </div>
           </aside>
         </div>
@@ -441,7 +443,8 @@
       .lc-list li{ background: #fff; border: 1px solid var(--stone-line); border-radius: 14px; padding: 14px 16px; }
       .lc-list strong{ display: block; font-size: 16px; margin: 8px 0 4px; color: #1f2937; }
       .lc-list p{ margin: 0; color: #374151; line-height: 1.55; font-size: 15px; }
-      .lc-next{ margin-top: 20px; background: var(--brand); color: #fff; border-radius: 16px; padding: 22px 24px; border-bottom: 5px solid var(--accent); }
+      .lc-left{ display: grid; gap: 20px; min-width: 0; }
+      .lc-next{ margin-top: 0; background: var(--brand); color: #fff; border-radius: 16px; padding: 22px 24px; border-bottom: 5px solid var(--accent); }
       .lc-next h3{ color: #fff; margin: 0 0 8px; font-size: 21px; }
       .lc-next p{ color: #d9e6de; line-height: 1.55; margin: 0 0 16px; }
       .lc-next .lc-fine{ font-size: 12px; margin: 14px 0 0; color: #b9cfc2; }

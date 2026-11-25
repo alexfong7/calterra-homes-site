@@ -292,7 +292,11 @@
       // Intake form: pre-select a plan from /contact?plan=..., and build the email subject line
       (function () {
         var f = document.getElementById("intake"); if (!f) return;
-        var slug = new URLSearchParams(location.search).get("plan");
+        var qs = new URLSearchParams(location.search), slug = qs.get("plan");
+        // Coming from a plan page? Use its address as the plan.
+        if (!slug && document.referrer) {
+          try { var ref = new URL(document.referrer); if (ref.host === location.host) slug = ref.pathname.replace(/^\/|\.html$/g, ""); } catch (e) {}
+        }
         if (slug) {
           var opt = f.querySelector('#plan option[data-slug="' + slug.replace(/[^a-z0-9-]/g, "") + '"]');
           if (opt) {
@@ -300,6 +304,16 @@
             var type = /custom home/.test(opt.value) ? "Custom home" : "ADU";
             var r = f.querySelector('input[name="project_type"][value="' + type + '"]'); if (r) r.checked = true;
           }
+        }
+        var type = { adu: "ADU", home: "Custom home" }[qs.get("type")];
+        if (type && !f.querySelector('input[name="project_type"]:checked')) {
+          var rt = f.querySelector('input[name="project_type"][value="' + type + '"]'); if (rt) rt.checked = true;
+        }
+        if (qs.get("from") === "lot-check") {
+          try {
+            var lc = sessionStorage.getItem("calterraLotCheck"), msg = f.querySelector('textarea[name="message"]');
+            if (lc && msg && !msg.value) msg.value = lc + "\n\n";
+          } catch (e) {}
         }
         f.addEventListener("submit", function () {
           var t = f.querySelector('input[name="project_type"]:checked');

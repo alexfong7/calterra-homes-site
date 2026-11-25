@@ -163,7 +163,7 @@
               <div class="lc-local" id="lc-local" hidden>
                 <h3>Local notes</h3>
                 <ul></ul>
-                <p class="lc-soon" hidden>We build throughout Greater Sacramento. Local notes for this area are coming; we'll cover your city's specifics in a feasibility review.</p>
+                <p class="lc-soon" hidden>We build throughout Greater Sacramento. We don't have local notes for this area yet; we'll cover your city or county's specifics in a feasibility review.</p>
                 <a class="text-link" href="#" target="_blank" rel="noopener"></a>
               </div>
               <ol class="lc-list" id="lc-list"></ol>
@@ -246,9 +246,9 @@
           if (d === "far") add("cost", "Long utility runs and fire access", "A building far from the street means longer trenches for water, sewer and power, and it can trigger fire sprinklers or fire access requirements.");
           else if (d === "mid") add("check", "Utility runs and fire requirements", "Distance from the street affects trenching costs and whether fire sprinklers are required. It's worth measuring early.");
           if (a !== "home" && w !== "well") add("check", "Water meter size", "Adding an ADU, especially one with fire sprinklers, can mean upsizing the water meter or adding a service. The water district decides.");
-          var p = val("panel");
+          var p = a === "home" ? "" : val("panel");
           if (p === "small") add("cost", "Electrical service upgrade", "A 100-amp panel usually isn't enough for the main house plus an all-electric unit. Plan on a service upgrade or a separate meter through PG&E or SMUD.");
-          else if (p === "unsure" || (p === "" && a !== "home")) add("check", "Electrical capacity", "We'll check your panel and service size; it decides whether PG&E or SMUD work is needed.");
+          else if (a !== "home" && (p === "unsure" || p === "")) add("check", "Electrical capacity", "We'll check your panel and service size; it decides whether PG&E or SMUD work is needed.");
           var sl = val("slope");
           if (sl === "steep") add("cost", "Steep slope", "Expect grading, retaining walls, and a foundation designed for the slope, usually with a soils report.");
           else if (sl === "some") add("check", "Some slope", "Mild slopes are common, but they can add grading and drainage work.");
@@ -261,41 +261,97 @@
           var order = { cost: 0, check: 1, ok: 2 };
           return out.sort(function (x, y) { return order[x.lvl] - order[y.lvl]; });
         }
-        // LOCAL NOTES: one entry per city/county. Keep to verifiable facts; no fees. Link the official page.
+        // LOCAL NOTES: one entry per city/county. Keep to verifiable facts; no fees. Link the official pages.
+        // Each note: [text, scope]  scope "all" = always, "adu" = ADU only, "home" = new home only.
+        var FIRE = ["Many foothill lots are in mapped fire hazard zones, which bring wildfire-resistant construction requirements.", "all"];
         var LOCAL = {
-          "rocklin": { name: "City of Rocklin", link: "https://www.rocklin.ca.us/accessory-dwellings", linkText: "City of Rocklin ADU information",
-            notes: ["Water: Placer County Water Agency (PCWA). Sewer: South Placer Municipal Utility District (SPMUD). Power: PG&E.",
-                    "The city doesn't require parking for new ADUs.",
-                    "Fees can come from the city plus the school district, sewer district and water agency. The city's Building Department gives fee estimates.",
-                    "Rocklin has an oak tree permit process, so oaks near the build area are worth checking early."] },
-          "roseville": { name: "City of Roseville", link: "https://www.roseville.ca.gov/development_services/building/preapproved_adu_plans_ab_1332.php", linkText: "City of Roseville ADU information",
-            notes: ["Water and sewer: City of Roseville Environmental Utilities. Power: Roseville Electric.",
-                    "The city has preapproved ADU plans; projects using one still get a site-specific review.",
-                    "The city's ADU handout says fire sprinklers aren't required for the ADU if they weren't required for the main house.",
-                    "Street frontage improvements (curb, gutter, sidewalk) may be required if your street doesn't have them."] },
-          "sac-city": { name: "City of Sacramento", link: "https://www.cityofsacramento.gov/community-development/planning/housing/accessory-dwelling-units", linkText: "City of Sacramento ADU information",
-            notes: ["Power: SMUD. Water and sewer depend on the neighborhood; much of the city is served by the City's Department of Utilities.",
-                    "The city offers free permit-ready ADU plans for detached ADUs.",
-                    "An optional, low-cost ADU zoning review lets you confirm the location on your lot before paying for full plans."] },
-          "auburn": { name: "City of Auburn", link: "https://auburn.ca.gov/245/Planning-Public-Works", linkText: "City of Auburn Planning & Public Works",
-            notes: ["Water: Placer County Water Agency (PCWA). Sewer: the City of Auburn. Power: PG&E.",
-                    "ADUs are reviewed by the city's Planning Director together with the building permit.",
-                    "Properties in historic areas have extra ADU design standards.",
-                    "Many foothill lots are in mapped fire hazard zones, which bring wildfire-resistant construction requirements."] },
-          "placer-county": { name: "Unincorporated Placer County", link: "https://www.placer.ca.gov/accessoryhomes", linkText: "Placer County accessory homes",
-            notes: ["Power: PG&E. Water is often PCWA, but many rural lots are on wells; sewer may be a public district or septic.",
-                    "Residential lots can have one ADU and one junior ADU; detached ADUs can be up to 1,200 square feet.",
-                    "The county offers pre-approved ADU plans and has an ADU team that meets one-on-one with property owners.",
-                    "Many foothill lots are in mapped fire hazard zones, which bring wildfire-resistant construction requirements."] },
-          "el-dorado": { name: "Unincorporated El Dorado County", link: "https://www.eldoradocounty.ca.gov/Land-Use/Planning-and-Building/Building-Division/ADU", linkText: "El Dorado County ADU information",
-            notes: ["Water and sewer: El Dorado Irrigation District (EID) in communities like El Dorado Hills, Cameron Park and Shingle Springs; wells and septic are common elsewhere. Power: PG&E.",
-                    "The county has a pre-reviewed ADU plan; it can't be modified, and site-specific items like solar and fire sprinklers are still required.",
-                    "Inside Placerville city limits, the City of Placerville handles ADUs instead of the county.",
-                    "Many foothill lots are in mapped fire hazard zones, which bring wildfire-resistant construction requirements."] },
-          "sac-county": { name: "Unincorporated Sacramento County", link: "https://building.saccounty.gov/pages/adu.aspx", linkText: "Sacramento County ADU information",
-            notes: ["Power: SMUD. Water comes from one of several local water districts, and sewer is SacSewer or a septic system.",
-                    "The county offers free Shelf Ready ADU plans, usable only in unincorporated areas.",
-                    "ADUs over 750 square feet are subject to impact fees."] }
+          "rocklin": { name: "City of Rocklin",
+            adu: ["https://www.rocklin.ca.us/accessory-dwellings", "City of Rocklin ADU information"],
+            home: ["https://www.rocklin.ca.us/building-permit-0", "City of Rocklin building permits"],
+            notes: [["Water: Placer County Water Agency (PCWA). Sewer: South Placer Municipal Utility District (SPMUD). Power: PG&E.", "all"],
+                    ["The city doesn't require parking for new ADUs.", "adu"],
+                    ["Fees can come from the city plus the school district, sewer district and water agency. The city's Building Department gives fee estimates.", "all"],
+                    ["Rocklin has an oak tree permit process, so oaks near the build area are worth checking early.", "all"]] },
+          "roseville": { name: "City of Roseville",
+            adu: ["https://www.roseville.ca.gov/development_services/building/preapproved_adu_plans_ab_1332.php", "City of Roseville ADU information"],
+            home: ["https://roseville.ca.gov/development_services/building/building_permits.php", "City of Roseville building permits"],
+            notes: [["Water and sewer: City of Roseville Environmental Utilities. Power: Roseville Electric.", "all"],
+                    ["The city has preapproved ADU plans; projects using one still get a site-specific review.", "adu"],
+                    ["The city's ADU handout says fire sprinklers aren't required for the ADU if they weren't required for the main house.", "adu"],
+                    ["Street frontage improvements (curb, gutter, sidewalk) may be required if your street doesn't have them.", "adu"]] },
+          "sac-city": { name: "City of Sacramento",
+            adu: ["https://www.cityofsacramento.gov/community-development/planning/housing/accessory-dwelling-units", "City of Sacramento ADU information"],
+            home: ["https://www.cityofsacramento.gov/community-development/building", "City of Sacramento Building Division"],
+            notes: [["Power: SMUD. Water and sewer depend on the neighborhood; much of the city is served by the City's Department of Utilities.", "all"],
+                    ["The city offers free permit-ready ADU plans for detached ADUs.", "adu"],
+                    ["An optional, low-cost ADU zoning review lets you confirm the location on your lot before paying for full plans.", "adu"]] },
+          "sac-county": { name: "Unincorporated Sacramento County",
+            adu: ["https://building.saccounty.gov/pages/adu.aspx", "Sacramento County ADU information"],
+            home: ["https://development.saccounty.gov/us/en/building-permits-inspection.html", "Sacramento County Building Permits & Inspection"],
+            notes: [["Power: SMUD. Water comes from one of several local water districts, and sewer is SacSewer or a septic system.", "all"],
+                    ["The county offers free Shelf Ready ADU plans, usable only in unincorporated areas.", "adu"],
+                    ["ADUs over 750 square feet are subject to impact fees.", "adu"]] },
+          "elk-grove": { name: "City of Elk Grove",
+            adu: ["https://elkgrovecity.org/sites/default/files/city-files/Departments/Building/building-forms-and-handouts/over-the-counter-adu-program.pdf", "Elk Grove Over the Counter ADU Program (PDF)"],
+            home: ["https://elkgrove.gov/building-permit-forms/residential-building-permits", "City of Elk Grove residential building permits"],
+            notes: [["Power: SMUD. Water and sewer providers depend on the neighborhood.", "all"],
+                    ["The city has an Over the Counter ADU program that uses city-provided plans.", "adu"],
+                    ["Lots on a well or septic system need Sacramento County Environmental Management approval before the building permit.", "all"],
+                    ["Elk Grove Unified collects developer fees for new homes before the building permit is issued.", "home"]] },
+          "folsom": { name: "City of Folsom",
+            adu: ["https://www.folsom.ca.us/government/community-development/housing-services/housing-resources/a-guide-to-accessory-dwelling-units-adus", "City of Folsom ADU guide"],
+            home: ["https://www.folsom.ca.us/government/community-development/epermit-center", "City of Folsom ePermit Center"],
+            notes: [["Water and sewer: City of Folsom. Power: SMUD.", "all"],
+                    ["Folsom updated its ADU rules in May 2026 to match state law.", "adu"],
+                    ["ADUs over 800 square feet need Planning design review before the building permit.", "adu"],
+                    ["New homes may need Planning design review before the building permit.", "home"]] },
+          "citrus-heights": { name: "City of Citrus Heights",
+            adu: ["https://www.citrusheights.net/1108/Permit-Ready-ADU-Program", "Citrus Heights Permit-Ready ADU Program"],
+            home: ["https://www.citrusheights.net/134/Building-Safety-Division", "Citrus Heights Building & Safety Division"],
+            notes: [["Power: SMUD. Water and sewer providers depend on the neighborhood.", "all"],
+                    ["The city offers free permit-ready ADU plans; the Planning Division can confirm an ADU suits your property.", "adu"],
+                    ["The Building & Safety Division gives fee estimates based on your project's square footage.", "all"]] },
+          "rancho-cordova": { name: "City of Rancho Cordova",
+            adu: ["https://cityofranchocordova.org/home/showpublisheddocument/20034/638644999044430000", "Rancho Cordova ADU FAQ (PDF)"],
+            home: ["https://www.cityofranchocordova.org/departments/community-development/building-and-safety", "Rancho Cordova Building and Safety"],
+            notes: [["Power: SMUD. Water and sewer providers depend on the neighborhood.", "all"],
+                    ["ADUs need to be compatible with the main home's architectural style, materials and colors.", "adu"],
+                    ["Building and Safety gives fee estimates for new custom homes and other projects.", "all"]] },
+          "lincoln": { name: "City of Lincoln",
+            adu: ["https://www.lincolnca.gov/en/business-and-development/pre-approved-adu-plans-ab-1332.aspx", "City of Lincoln pre-approved ADU plans"],
+            home: ["https://lincolnca.gov/en/business-and-development/residential-permits.aspx", "City of Lincoln residential permits"],
+            notes: [["Water, sewer and garbage: City of Lincoln. Power: PG&E.", "all"],
+                    ["The city has pre-approved ADU plans; a permit using one is approved or denied within 30 days of a complete submittal.", "adu"],
+                    ["ADUs over 750 square feet pay impact fees in proportion to the main home.", "adu"]] },
+          "loomis": { name: "Town of Loomis",
+            adu: ["https://loomis.ca.gov/preapprovedadupermit", "Town of Loomis pre-approved ADU permits"],
+            home: ["https://loomis.ca.gov/residentialstructurespermit", "Town of Loomis residential permits"],
+            notes: [["Water: Placer County Water Agency (PCWA). Sewer: South Placer Municipal Utility District (SPMUD) or septic. Power: PG&E.", "all"],
+                    ["The town's pre-approved ADU program uses Placer County's plans.", "adu"],
+                    ["Lots can have one ADU and one junior ADU; detached ADUs can be up to 1,200 square feet.", "adu"],
+                    FIRE] },
+          "auburn": { name: "City of Auburn",
+            adu: ["https://auburn.ca.gov/399/Planning", "City of Auburn Planning"],
+            home: ["https://auburn.ca.gov/362/Building-Permits", "City of Auburn Building Division"],
+            notes: [["Water: Placer County Water Agency (PCWA). Sewer: the City of Auburn. Power: PG&E.", "all"],
+                    ["ADUs are reviewed by the city's Planning Director together with the building permit.", "adu"],
+                    ["Properties in historic areas have extra design standards.", "all"],
+                    FIRE] },
+          "placer-county": { name: "Unincorporated Placer County",
+            adu: ["https://www.placer.ca.gov/accessoryhomes", "Placer County accessory homes"],
+            home: ["https://www.placer.ca.gov/5473/Building-Services", "Placer County Building Services"],
+            notes: [["Power: PG&E. Water is often PCWA, but many rural lots are on wells; sewer may be a public district or septic.", "all"],
+                    ["Projects inside city or town limits are permitted by that city or town, not the county.", "all"],
+                    ["Residential lots can have one ADU and one junior ADU; detached ADUs can be up to 1,200 square feet.", "adu"],
+                    ["The county offers pre-approved ADU plans and has an ADU team that meets one-on-one with property owners.", "adu"],
+                    FIRE] },
+          "el-dorado": { name: "Unincorporated El Dorado County",
+            adu: ["https://www.eldoradocounty.ca.gov/Land-Use/Planning-and-Building/Building-Division/ADU", "El Dorado County ADU information"],
+            home: ["https://www.eldoradocounty.ca.gov/Land-Use/Planning-and-Building/Building-Division", "El Dorado County Building Division"],
+            notes: [["Water and sewer: El Dorado Irrigation District (EID) in communities like El Dorado Hills, Cameron Park and Shingle Springs; wells and septic are common elsewhere. Power: PG&E.", "all"],
+                    ["The county has a pre-reviewed ADU plan; it can't be modified, and site-specific items like solar and fire sprinklers are still required.", "adu"],
+                    ["Inside Placerville city limits, the City of Placerville issues permits instead of the county.", "all"],
+                    FIRE] }
         };
         function render() {
           var list = items(), ul = document.getElementById("lc-list");
@@ -310,11 +366,16 @@
           });
           var where = document.getElementById("where").value, box = document.getElementById("lc-local"), L = LOCAL[where];
           if (L) {
+            var isHome = val("build") === "home", link = isHome ? L.home : (L.adu || L.home);
             box.hidden = false;
-            box.querySelector("h3").textContent = "Local notes: " + L.name;
+            box.querySelector("h3").textContent = "Local notes: " + L.name + (isHome ? " (new home)" : "");
             var ul2 = box.querySelector("ul"); ul2.innerHTML = "";
-            L.notes.forEach(function (n) { var li = document.createElement("li"); li.textContent = n; ul2.appendChild(li); });
-            var a2 = box.querySelector("a"); a2.href = L.link; a2.textContent = L.linkText + " →";
+            L.notes.forEach(function (n) {
+              if (n[1] === "all" || (n[1] === "adu" && !isHome) || (n[1] === "home" && isHome)) {
+                var li = document.createElement("li"); li.textContent = n[0]; ul2.appendChild(li);
+              }
+            });
+            var a2 = box.querySelector("a"); a2.href = link[0]; a2.textContent = link[1] + " \u2192";
             box.querySelector(".lc-soon").hidden = true; a2.hidden = false;
           } else if (where) {
             box.hidden = false; box.querySelector("h3").textContent = "Local notes";
